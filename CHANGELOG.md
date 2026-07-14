@@ -61,6 +61,11 @@ All notable changes to CareerForge OS will be documented in this file.
 - Added provider-neutral KernelRequest, WorkflowPlan, and ApprovedOutput JSON Schemas.
 - Added schema validation tests for Kernel namespace, provider neutrality, and approved-output metadata.
 
+- Started Sprint 2 by adding the Career Ontology specification package.
+- Added Sprint 2 Career Ontology PRD.
+- Added provider-neutral OntologyEntity and OntologyRelationship JSON Schemas.
+- Added schema validation tests for Ontology versioning, provenance, and explanation metadata.
+
 
 ## Revision History
 

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careerforge.dev/schemas/kernel/approved-output.schema.json",
+  "title": "ApprovedOutput",
+  "description": "Career intelligence artifact approved by Kernel validation gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "output_id", "request_id", "artifact_type", "artifact", "validation", "explanations", "provenance"],
+  "properties": {
+    "schema_version": { "const": "careerforge.kernel.v0.1" },
+    "output_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "artifact_type": { "type": "string", "minLength": 1 },
+    "artifact": { "type": "object" },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "gate_results"],
+      "properties": {
+        "status": { "const": "passed" },
+        "gate_results": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["gate", "status"],
+            "properties": {
+              "gate": { "type": "string", "minLength": 1 },
+              "status": { "const": "passed" }
+            }
+          }
+        }
+      }
+    },
+    "explanations": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "provenance": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

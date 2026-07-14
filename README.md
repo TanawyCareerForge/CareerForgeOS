@@ -1,7 +1,7 @@
 # CareerForge OS
 
 **Version:** 0.1.0-alpha  
-**Status:** Sprint 0 Bootstrap  
+**Status:** Sprint 1 Active  
 **Purpose:** CareerForge OS is an AI-native Career Intelligence Operating System for explainable, truth-first professional intelligence.
 
 CareerForge OS is not a resume generator. It is a model-agnostic open-source ecosystem for career intelligence, including resume intelligence, ATS intelligence, recruiter intelligence, LinkedIn intelligence, cover letter intelligence, interview intelligence, career coaching, skill-gap analysis, Career DNA, Career Twin, knowledge graph, enterprise APIs, AI agents, SDKs, and a plugin marketplace.
@@ -45,7 +45,7 @@ CareerForge OS uses Specification Driven Development:
 ## Sprint Roadmap
 
 - **Sprint 0:** Repository bootstrap, governance, standards, and specification framework.
-- **Sprint 1:** Career Kernel specification.
+- **Sprint 1:** Career Kernel specification, contracts, and validation model.
 - **Sprint 2:** Career Ontology specification.
 - **Sprint 3:** Resume Intelligence specification.
 

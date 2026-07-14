@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careerforge.dev/schemas/kernel/workflow-plan.schema.json",
+  "title": "WorkflowPlan",
+  "description": "Ordered Kernel-mediated workflow plan for agents, engines, and validation gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "plan_id", "request_id", "steps"],
+  "properties": {
+    "schema_version": { "const": "careerforge.kernel.v0.1" },
+    "plan_id": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step_id", "step_type", "depends_on", "target", "permission_scope"],
+        "properties": {
+          "step_id": { "type": "string", "minLength": 1 },
+          "step_type": { "enum": ["intent", "context", "engine", "agent", "gate", "approval"] },
+          "depends_on": { "type": "array", "items": { "type": "string" } },
+          "target": { "type": "string", "minLength": 1 },
+          "permission_scope": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

@@ -39,7 +39,7 @@
 | Sprint | Focus | Outputs |
 | --- | --- | --- |
 | 0 | Bootstrap | Governance, standards, repository structure |
-| 1 | Career Kernel | Kernel RFC, contracts, validation model |
+| 1 | Career Kernel | Kernel RFC, JSON Schema contracts, validation model |
 | 2 | Career Ontology | Entity definitions and JSON Schemas |
 | 3 | Resume Intelligence | Resume engine specifications |
 | 4 | ATS and Recruiter Intelligence | Quality gates and scoring specifications |
@@ -58,4 +58,4 @@
 
 | Version | Date | Notes |
 | --- | --- | --- |
-| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap. |
+| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap; Sprint 1 scope activated. |

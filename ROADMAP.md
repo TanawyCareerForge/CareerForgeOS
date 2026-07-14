@@ -58,4 +58,4 @@
 
 | Version | Date | Notes |
 | --- | --- | --- |
-| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap; Sprint 2 scope activated. |
+| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap; Sprint 3 scope activated. |

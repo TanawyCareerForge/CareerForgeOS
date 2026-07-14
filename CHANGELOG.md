@@ -66,6 +66,11 @@ All notable changes to CareerForge OS will be documented in this file.
 - Added provider-neutral OntologyEntity and OntologyRelationship JSON Schemas.
 - Added schema validation tests for Ontology versioning, provenance, and explanation metadata.
 
+- Started Sprint 3 by adding the Resume Intelligence specification package.
+- Added Sprint 3 Resume Intelligence PRD and RFC drafts.
+- Added provider-neutral ResumeSection and ResumeRecommendation JSON Schemas.
+- Added schema validation tests for Resume provenance, source references, explanations, and provider neutrality.
+
 
 ## Revision History
 

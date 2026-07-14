@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careerforge.dev/schemas/resume/resume-section.schema.json",
+  "title": "ResumeSection",
+  "description": "Provider-neutral resume draft section with source ontology references, truth-state labels, provenance, and explanations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "section_id", "section_type", "fact_state", "sensitivity", "content", "source_entity_ids", "explanation"],
+  "properties": {
+    "schema_version": { "const": "careerforge.resume.v0.1" },
+    "section_id": { "type": "string", "minLength": 1, "pattern": "^resume-section:[A-Za-z0-9._-]+$" },
+    "section_type": {
+      "enum": ["headline", "summary", "experience", "project", "skills", "education", "certification", "achievement", "volunteer", "publication", "custom"]
+    },
+    "fact_state": { "enum": ["verified", "suggested", "assumption", "external_context"] },
+    "sensitivity": { "enum": ["public", "internal", "personal", "sensitive_personal"] },
+    "content": { "type": "string", "minLength": 1 },
+    "source_entity_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1, "pattern": "^[a-z]+:[A-Za-z0-9._-]+$" }
+    },
+    "provenance_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "target_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "role": { "type": "string" },
+        "seniority": { "type": "string" },
+        "geography": { "type": "string" },
+        "job_description_id": { "type": "string" }
+      }
+    },
+    "explanation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rationale", "source_summary"],
+      "properties": {
+        "rationale": { "type": "string", "minLength": 1 },
+        "source_summary": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "fact_state": { "const": "verified" } },
+        "required": ["fact_state"]
+      },
+      "then": { "required": ["provenance_refs"] }
+    }
+  ]
+}

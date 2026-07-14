@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careerforge.dev/schemas/resume/resume-recommendation.schema.json",
+  "title": "ResumeRecommendation",
+  "description": "Provider-neutral recommendation for improving a resume artifact without fabricating user facts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "recommendation_id", "recommendation_type", "source_entity_ids", "current_text", "recommended_text", "fact_state", "improvement_category", "rationale", "expected_impact"],
+  "properties": {
+    "schema_version": { "const": "careerforge.resume.v0.1" },
+    "recommendation_id": { "type": "string", "minLength": 1, "pattern": "^resume-recommendation:[A-Za-z0-9._-]+$" },
+    "recommendation_type": { "enum": ["rewrite", "reorder", "add_gap_question", "remove_unverified_claim", "format", "keyword_alignment"] },
+    "source_entity_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1, "pattern": "^[a-z]+:[A-Za-z0-9._-]+$" }
+    },
+    "current_text": { "type": "string" },
+    "recommended_text": { "type": "string" },
+    "fact_state": { "enum": ["verified", "suggested", "assumption", "external_context"] },
+    "improvement_category": { "enum": ["clarity", "relevance", "impact", "formatting", "truthfulness", "completeness"] },
+    "rationale": { "type": "string", "minLength": 1 },
+    "expected_impact": { "type": "string", "minLength": 1 },
+    "gap_question": { "type": "string" }
+  }
+}

@@ -57,6 +57,10 @@ All notable changes to CareerForge OS will be documented in this file.
 - Added initial Sprint 2 Career Ontology RFC draft.
 - Added v0.1.0-alpha release manifest.
 
+- Started Sprint 1 by adding the Career Kernel contract package.
+- Added provider-neutral KernelRequest, WorkflowPlan, and ApprovedOutput JSON Schemas.
+- Added schema validation tests for Kernel namespace, provider neutrality, and approved-output metadata.
+
 
 ## Revision History
 

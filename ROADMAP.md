@@ -40,7 +40,7 @@
 | --- | --- | --- |
 | 0 | Bootstrap | Governance, standards, repository structure |
 | 1 | Career Kernel | Kernel RFC, JSON Schema contracts, validation model |
-| 2 | Career Ontology | Entity definitions and JSON Schemas |
+| 2 | Career Ontology | Entity definitions, relationship schemas, provenance validation |
 | 3 | Resume Intelligence | Resume engine specifications |
 | 4 | ATS and Recruiter Intelligence | Quality gates and scoring specifications |
 | 5 | Agents and SDK | Agent protocol, SDK contracts, examples |
@@ -58,4 +58,4 @@
 
 | Version | Date | Notes |
 | --- | --- | --- |
-| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap; Sprint 1 scope activated. |
+| 0.1.0-alpha | 2026-07-14 | Initial Sprint 0 roadmap; Sprint 2 scope activated. |

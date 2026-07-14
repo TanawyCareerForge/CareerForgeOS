@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://careerforge.dev/schemas/ontology/ontology-entity.schema.json",
+  "title": "OntologyEntity",
+  "description": "Provider-neutral career ontology entity with truth-state, provenance, sensitivity, and relationship anchors.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "entity_id", "entity_type", "fact_state", "sensitivity", "properties", "relationships"],
+  "properties": {
+    "schema_version": { "const": "careerforge.ontology.v0.1" },
+    "entity_id": { "type": "string", "minLength": 1, "pattern": "^[a-z]+:[A-Za-z0-9._-]+$" },
+    "entity_type": {
+      "enum": [
+        "person",
+        "resume",
+        "experience",
+        "skill",
+        "competency",
+        "project",
+        "achievement",
+        "certification",
+        "employer",
+        "industry",
+        "role",
+        "interview",
+        "job",
+        "salary",
+        "language",
+        "technology",
+        "education",
+        "kpi",
+        "career_goal"
+      ]
+    },
+    "fact_state": { "enum": ["verified", "suggested", "assumption", "external_context"] },
+    "sensitivity": { "enum": ["public", "internal", "personal", "sensitive_personal"] },
+    "properties": {
+      "type": "object",
+      "additionalProperties": true,
+      "minProperties": 1
+    },
+    "relationships": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "source_type", "captured_at"],
+        "properties": {
+          "source_id": { "type": "string", "minLength": 1 },
+          "source_type": { "enum": ["user_confirmation", "uploaded_document", "imported_profile", "external_dataset", "system_derivation"] },
+          "captured_at": { "type": "string", "format": "date-time" },
+          "evidence": { "type": "string" }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "fact_state": { "const": "verified" } },
+        "required": ["fact_state"]
+      },
+      "then": { "required": ["provenance"] }
+    }
+  ]
+}
